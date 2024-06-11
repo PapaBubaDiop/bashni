@@ -1,0 +1,19 @@
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: width 0.3s ease; /* Optional: Add a transition effect for width changes */
+  border-radius: 7px; /* Rounded corners */
+
+  user-select: none;
+
+}
+
+.cell-number {
+  font-size: 21px;
+  font-weight: bold;
+  user-select: none;
+
+  color: white;
+}

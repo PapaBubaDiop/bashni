@@ -1,0 +1,35 @@
+/* styles.css */
+
+/* Animation for merged block */
+@keyframes mergeAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.merged {
+    animation: mergeAnimation 0.5s ease-out;
+}
+
+/* Styles for flying stars */
+.star {
+    position: absolute; 
+ 
+    width: 36px;
+    height: 36px;
+    background-image: url('./assets/star.png'); /* Path to your star PNG image */
+    background-size: cover;
+    animation: fly 1.0s ease-out forwards;
+}
+
+/* Animation keyframes for flying stars */
+@keyframes fly {
+    from {
+        opacity: 1;
+        transform: translate(-45px, -25px) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(calc(var(--x) * 250px), calc(var(--y) * 250px)) scale(0.5);
+    }
+}

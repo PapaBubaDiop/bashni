@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+// App.js
+import React, { useState } from 'react';
 import './App.css';
+import Play from './Play';
+import Menu from './Menu';
+import Top from './Top';
 
-function App() {
+const App = () => {
+  const [page, setPage] = useState(0)
+  const [puzzle, setPuzzle] = useState(0);
+  const [best, setBest] = useState(77);
+  const [user, setUser] = useState(1001);
+ 
+  
+  const handlePage = (pageId, uid, puz, score) => {
+    console.log("Page & puzzle = ", pageId, puz)
+    setPuzzle(puz)
+    setBest(score)
+    setUser(uid)
+    setPage(pageId)
+  }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        {page===0  && <Menu handlePage={handlePage} />}
+        {page===1  && <Play user={user} puzzle={puzzle} best={best} handlePage={handlePage} />}
+        {page===2  && <Top user={user} handlePage={handlePage} />}
+      </div>
     </div>
   );
 }
 
-export default App;
+export default App;  
+
